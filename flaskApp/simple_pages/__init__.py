@@ -12,22 +12,3 @@ def show(page):
         return render_template('%s.html' % page)
     except TemplateNotFound:
         abort(404)
-
-@bp.context_processor
-def inject_deployment_environment():
-    deployment_environment = getenv('FLASK_ENV', None)
-    return dict(deployment_environment=deployment_environment)
-
-@bp.context_processor
-def inject_deployment_environment():
-    currentDateTime = datetime.datetime.now()
-    date = currentDateTime.date()
-    year = date.strftime("%Y")
-    return dict(year=year)
-
-@bp.context_processor
-def inject_deployment_environment():
-    message = "hello world"
-    return dict(mymessage=message)
-
-
