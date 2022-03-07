@@ -50,6 +50,8 @@
     <!-- Your page content -->
     <div class="row">
     {{ render_messages() }}
+        {% block header %}
+        {% endblock %}
         {% block content %}
         {% endblock %}
     </div>
