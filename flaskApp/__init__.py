@@ -3,6 +3,7 @@ from flask import Flask, render_template
 from flaskApp import db, auth, blog, simple_pages
 from flaskApp.context_processors import utility_text_processors
 from werkzeug.exceptions import NotFound
+from flask_bootstrap import Bootstrap5
 
 
 def page_not_found(e):
@@ -40,6 +41,8 @@ def create_app(test_config=None):
     app.register_blueprint(blog.bp)
     app.register_blueprint(simple_pages.bp)
     app.register_error_handler(404,page_not_found)
+    bootstrap = Bootstrap5(app)
+    app.config['BOOTSTRAP_BOOTSWATCH_THEME'] = 'minty'
 
     # make url_for('index') == url_for('blog.index')
     # in another app, you might define a separate main index here with
